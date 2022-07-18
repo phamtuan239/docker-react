@@ -29,7 +29,7 @@ jobs:
         id: timestamp
         run: echo "::set-output name=timestamp::$(date +'%s')"
       - name: deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v16
+        uses: einaregilsson/beanstalk-deploy@v20
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -37,6 +37,5 @@ jobs:
           environment_name: Reactfrontend-env
           region: us-east-1
           existing_bucket_name: elasticbeanstalk-us-east-1-891869786502
-          version_label: ${{steps.timestamp.outputs.timestamp}}
-          use_existing_version_if_available: true
+          version_label: Sample Application
           deployment_package: docker-compose.yml
