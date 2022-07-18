@@ -37,6 +37,6 @@ jobs:
           environment_name: Reactfrontenddocker-env
           region: ap-southeast-1
           existing_bucket_name: elasticbeanstalk-ap-southeast-1-891869786502
+          version_label: 1658135567
           use_existing_version_if_available: true
-          version_label: ${{steps.timestamp.outputs.timestamp}}
           deployment_package: docker-compose.yml
