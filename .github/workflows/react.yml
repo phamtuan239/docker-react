@@ -22,14 +22,14 @@ jobs:
       - name: docker
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: docker build
-        run: docker build -t phamtuan239/frontend -f dockerfile.dev .
+        run: docker build -t phamtuan239/frontend -f Dockerfile.dev .
       - name: docker run
         run: docker run -e CI=true phamtuan239/frontend npm run test
       - name: Get timestamp
         id: timestamp
         run: echo "::set-output name=timestamp::$(date +'%s')"
       - name: deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v20
+        uses: einaregilsson/beanstalk-deploy@v16
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -37,6 +37,6 @@ jobs:
           environment_name: Reactfrontend-env
           region: us-east-1
           existing_bucket_name: elasticbeanstalk-us-east-1-891869786502
-          version_label: Sample Application
-          deployment_package: docker-compose.yml
+          version_label: ${{steps.timestamp.outputs.timestamp}}
           use_existing_version_if_available: true
+          deployment_package: docker-compose.yml
