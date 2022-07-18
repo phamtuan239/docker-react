@@ -34,4 +34,5 @@ jobs:
           environment_name: Reactfrotend-env
           region: us-east-1
           existing_bucket_name: elasticbeanstalk-us-east-1-891869786502
-          version_label: 12345
+          version_label: Sample Application
+          deployment_package: deploy.zip
