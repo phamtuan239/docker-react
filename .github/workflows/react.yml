@@ -28,8 +28,8 @@ jobs:
       - name: deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
         with:
-          aws_access_key: $AWS_ACCESS_KEY_ID
-          aws_secret_key: $AWS_SECRET_ACCESS_KEY
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: react-frotend
           environment_name: Reactfrotend-env
           region: us-east-1
