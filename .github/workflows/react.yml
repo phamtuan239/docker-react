@@ -33,9 +33,9 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: react-frontend
-          environment_name: Reactfrontend-env
-          region: us-east-1
-          existing_bucket_name: elasticbeanstalk-us-east-1-891869786502
-          version_label: Sample Application
+          application_name: react-frontend-docker
+          environment_name: Reactfrontenddocker-env
+          region: ap-southeast-1
+          existing_bucket_name: elasticbeanstalk-ap-southeast-1-891869786502
+          version_label: ${{steps.timestamp.outputs.timestamp}}
           deployment_package: docker-compose.yml
