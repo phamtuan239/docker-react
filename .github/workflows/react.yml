@@ -39,4 +39,3 @@ jobs:
           existing_bucket_name: elasticbeanstalk-us-east-1-891869786502
           version_label: ${{steps.timestamp.outputs.timestamp}}
           deployment_package: docker-compose.yml
-          use_existing_version_if_available: true
